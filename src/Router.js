@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginYoohyun from './pages/yoohyunMoon/Login/Login';
-import MainYoohyun from './pages/yoohyunMoon/Main/Main';
-import LoginSoobin from './pages/soobinLee/Login/Login';
-import MainSoobin from './pages/soobinLee/Main/Main';
-import LoginSeungbeom from './pages/seungbeomJeon/Login/Login';
-import MainSeungbeom from './pages/seungbeomJeon/Main/Main';
+import Nav from './components/Nav/Nav';
+import LoginYoohyun from './pages/yoohyunMoon/Login/LoginYoohyun';
+import MainYoohyun from './pages/yoohyunMoon/Main/MainYoohyun';
+import LoginSoobin from './pages/soobinLee/Login/LoginSoobin';
+import MainSoobin from './pages/soobinLee/Main/MainSoobin';
+import LoginSeungbeom from './pages/seungbeomJeon/Login/LoginSeungbeom';
+import MainSeungbeom from './pages/seungbeomJeon/Main/MainSeungbeom';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login-yoohyun" element={<LoginYoohyun />} />
         <Route path="/main-yoohyun" element={<MainYoohyun />} />
