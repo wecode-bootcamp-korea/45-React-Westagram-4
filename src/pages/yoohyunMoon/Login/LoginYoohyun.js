@@ -18,6 +18,10 @@ const LoginYoohyun = () => {
     userPw = event.target.value;
   };
 
+  // 로그인 버튼 활성화(validation)
+  const [btnState, setBtnState] = useState(false);
+  const activateBtn = () => {};
+
   return (
     <div className="loginYoohyun">
       <main>
@@ -44,9 +48,11 @@ const LoginYoohyun = () => {
             </div>
             <div>
               <button
+                className={`${!btnState} ? activate : unactivate`}
                 onClick={() => {
                   navigate('/main-yoohyun');
                 }}
+                onChange={activateBtn}
               >
                 로그인
               </button>

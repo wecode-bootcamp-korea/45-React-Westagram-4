@@ -15,6 +15,7 @@ a {
 $bdColor: #ddd;
 $bgColor: #fafafa;
 $btnColor: #4cb5f9;
+$activatedBtnColor: #1877f2;
 
 // mixins
 @mixin flex($direction, $justify, $align, $gap) {
@@ -23,6 +24,15 @@ $btnColor: #4cb5f9;
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
+}
+
+@mixin colors {
+  &.unactivate {
+    background-color: $btnColor;
+  }
+  &.activate {
+    background-color: $activatedBtnColor;
+  }
 }
 
 .loginYoohyun {
