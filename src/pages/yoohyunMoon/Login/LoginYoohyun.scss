@@ -1,78 +1,88 @@
-.mainWrapper {
+// common.scss
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// font
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+// variables
+$bdColor: #ddd;
+$bgColor: #fafafa;
+$btnColor: #4cb5f9;
+
+// mixins
+@mixin flex($direction, $justify, $align, $gap) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+.loginYoohyun {
+  @include flex(_, center, center, _);
   height: 100vh;
+
+  .loginContainer {
+    @include flex(column, center, center, 50px);
+    padding: 70px 30px;
+    border: 1px solid $bdColor;
+
+    #logo {
+      width: 200px;
+      font-family: 'Lobster', cursive;
+      font-size: 2.5rem;
+    }
+
+    a {
+      margin-top: 30px;
+
+      font-size: 0.9rem;
+      color: #00376b;
+    }
+  }
 }
-
-.loginContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-
-  /* bottom-top 방식 : 부모요소에 width, height를 지정하는 것이 아닌, padding or margin을 통해 레이아웃 구성하기 */
-  padding: 70px 30px;
-
-  border: 1px solid #ddd;
-}
-
-h1#logo {
-  width: 200px;
-  font-family: 'Lobster', cursive;
-  font-size: 2.5rem;
-}
-
-/* .inputWrapper div {
-  width: 300px;
-} */
 
 .inputWrapper div {
   width: 300px;
-
   margin-bottom: 5px;
-}
 
-.inputWrapper input {
-  width: 100%;
-  height: 40px;
+  input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid $bdColor;
+    border-radius: 3px;
+    background-color: $bgColor;
+    outline: none;
 
-  padding: 5px;
+    &:focus {
+      border: 1px solid #aaa;
+    }
+  }
 
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: #fafafa;
+  button {
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
 
-  outline: none;
-}
+    border: none;
+    border-radius: 9px;
 
-.inputWrapper input:focus {
-  border: 1px solid #aaa;
-}
+    background-color: $btnColor;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
 
-.inputWrapper button {
-  width: 100%;
-  height: 35px;
-  margin-top: 15px;
+    /* 상태 관리 후 적용될 코드 : 버튼 활성화 */
+    /* transition: background-color 0.1s ease-in-out; */
 
-  border: none;
-  border-radius: 9px;
-
-  background-color: #4cb5f9;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
-
-  /* 상태 관리 후 적용될 코드 : 버튼 활성화 */
-  /* transition: background-color 0.1s ease-in-out; */
-
-  cursor: pointer;
-}
-
-.loginContainer a {
-  margin-top: 30px;
-
-  font-size: 0.9rem;
-  color: #00376b;
+    cursor: pointer;
+  }
 }

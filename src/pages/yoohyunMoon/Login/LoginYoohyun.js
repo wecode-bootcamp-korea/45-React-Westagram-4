@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './LoginYoohyun.scss';
 
 const LoginYoohyun = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="mainWrapper">
+    <div className="loginYoohyun">
       <main>
         <article className="loginContainer">
           <div>
