@@ -1,8 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainSeungbeom.scss';
 import '../../../styles/common.scss';
+const ini = [
+  <div className="appendChild-add">
+    <div>
+      <span>wecode 다 같이 화이팅~~~!</span>
+      <span className="deleteAndLike">
+        <button className="delete-button">
+          <img
+            className="delete-commentIcon"
+            src="/images/seungbeomJeon/deleteicon.png"
+            alt=""
+          />
+        </button>
+        <button className="like-button">
+          <img
+            className="heart-commentIcon"
+            src="/images/seungbeomJeon/heart.png"
+            alt=""
+          />
+        </button>
+      </span>
+    </div>
+    <div className="comment-time">42분 전</div>
+  </div>,
+];
 
 const MainSeungbeom = () => {
+  const [comment, setComment] = useState('');
+  const [result, setResult] = useState(ini);
+  const commentInput = e => {
+    setComment(e.target.value);
+  };
+
+  const commentClick = () => {
+    ini.push(
+      <div className="appendChild-add">
+        <div>
+          <span>{comment}</span>
+          <span className="deleteAndLike">
+            <button className="delete-button">
+              <img
+                className="delete-commentIcon"
+                src="/images/seungbeomJeon/deleteicon.png"
+                alt=""
+              />
+            </button>
+            <button className="like-button">
+              <img
+                className="heart-commentIcon"
+                src="/images/seungbeomJeon/heart.png"
+                alt=""
+              />
+            </button>
+          </span>
+        </div>
+        <div className="comment-time">42분 전</div>
+      </div>
+    );
+    setResult(ini);
+  };
+
   return (
     <>
       <nav className="main-seungbeom">
@@ -102,30 +160,7 @@ const MainSeungbeom = () => {
                   내용추가
                 </details>
               </div>
-              <div className="comment-next">
-                <div className="appendChild-add">
-                  <div>
-                    <span>wecode 다 같이 화이팅~~~!</span>
-                    <span className="deleteAndLike">
-                      <button className="delete-button">
-                        <img
-                          className="delete-commentIcon"
-                          src="/images/seungbeomJeon/deleteicon.png"
-                          alt=""
-                        />
-                      </button>
-                      <button className="like-button">
-                        <img
-                          className="heart-commentIcon"
-                          src="/images/seungbeomJeon/heart.png"
-                          alt=""
-                        />
-                      </button>
-                    </span>
-                  </div>
-                  <div className="comment-time">42분 전</div>
-                </div>
-              </div>
+              <div className="comment-next">{result}</div>
             </div>
           </div>
           <div className="comment-create">
@@ -133,8 +168,11 @@ const MainSeungbeom = () => {
               className="comment-input"
               type="text"
               placeholder="댓글 달기..."
+              onChange={commentInput}
             />
-            <button className="comment-button">게시</button>
+            <button className="comment-button" onClick={commentClick}>
+              게시
+            </button>
           </div>
         </section>
 
