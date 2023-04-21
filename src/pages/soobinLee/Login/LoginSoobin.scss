@@ -1,3 +1,73 @@
-.exx1 {
-  border: 1px solid blue;
+.wrap {
+  height: 100vh;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #f1f1f1;
+
+    .inner {
+      width: 380px;
+      height: 430px;
+      padding: 10px 40px;
+      box-sizing: border-box;
+      background: #fff;
+      border: 1px solid #e9e9e9;
+
+      .logo {
+        font-family: Lobster;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .inputId2 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 45px;
+        margin-bottom: 10px;
+        background: #fafafa;
+        border: 1px solid #eeeeee;
+        border-radius: 3px;
+        font-size: 14px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .buttonBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0095f6;
+        border: #b2dffc;
+        border-radius: 4px;
+        color: white;
+        font-weight: 360;
+        padding: 10px 20px;
+        margin-top: 10px;
+        width: 100%;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:disabled {
+          background-color: #b2dffc;
+          cursor: default;
+        }
+      }
+
+      .forgotPassword {
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        color: #1275cc;
+        text-decoration-line: none;
+        margin-top: 58px;
+      }
+    }
+  }
 }
