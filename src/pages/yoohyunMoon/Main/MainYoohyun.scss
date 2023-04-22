@@ -1,3 +1,426 @@
-div {
-  border: 1px solid red;
+// common.scss
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// font
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+// variables
+$bdColor: #ddd;
+$bgColor: #fafafa;
+$textColor: #737373;
+$ctaColor: #0095f6;
+$footerColor: #c7c7c7;
+
+// mixins
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// nav bar
+.mainYoohyun {
+  #gnb {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 100px;
+
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+
+    z-index: 1;
+
+    div {
+      #logo {
+        font-family: 'Lobster', cursive;
+        font-size: 1.8rem;
+      }
+    }
+
+    .searchContainer {
+      position: relative;
+      display: inline-block;
+
+      /* border: 1px solid #bbb; */
+      width: 200px;
+      height: 30px;
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border: none;
+        border-radius: 5px;
+
+        background-color: #efefef;
+
+        outline: none;
+      }
+
+      .searchWrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5px;
+        width: 100%;
+        height: 100%;
+        color: #737373;
+        font-size: 0.8rem;
+      }
+    }
+
+    .navIconsContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}
+
+// main
+.mainYoohyun {
+  main {
+    @include flex(_, center, _, 30px);
+    padding: 50px 0;
+
+    background-color: $bgColor;
+
+    .leftColumnWrap {
+      @include flex(column, _, center, 10px);
+      // width: 70%;
+      margin-right: 50px;
+
+      .storiesContainer {
+        margin-bottom: 35px;
+
+        ul {
+          display: flex;
+          gap: 17px;
+
+          li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+
+            div {
+              position: relative;
+
+              width: 80px;
+              height: 80px;
+
+              margin-bottom: 5px;
+
+              border: 3px solid transparent;
+              border-radius: 50%;
+
+              background-image: linear-gradient(#fff, #fff),
+                linear-gradient(to right, red 0%, orange 100%);
+              background-origin: border-box;
+              background-clip: content-box, border-box;
+
+              img {
+                position: absolute;
+                top: 2.5px;
+                left: 2.5px;
+                width: 70px;
+                height: 70px;
+                border: 1px solid $bdColor;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+
+      .postsContainer {
+        // bottom-up 방식이 아닌 것 같다
+        width: 630px;
+
+        article {
+          border: 1.5px solid $bdColor;
+          background-color: #fff;
+
+          .postHeader {
+            @include flex(_, space-between, center, _);
+            padding: 10px;
+
+            .posterInfoWrapper {
+              @include flex(_, _, center, 13px);
+
+              img {
+                width: 32px;
+                height: 32px;
+                border: 1px solid $bdColor;
+                border-radius: 50%;
+              }
+
+              .createdAt {
+                @include flex(_, _, center, 3px);
+                width: 50px;
+                color: $textColor;
+
+                span {
+                  background-color: $textColor;
+                }
+              }
+            }
+
+            .moreOptionsWrapper {
+              // 영역 내부에 포함된 span 자식들(점)을 세로 중앙 정렬시키는 코드
+              @include flex(_, _, center, _);
+              cursor: pointer;
+
+              span {
+                display: inline-block;
+                width: 3px;
+                height: 3px;
+                border: 1px solid #000;
+                border-radius: 50%;
+                background-color: #000;
+
+                &:nth-of-type(2) {
+                  margin-left: 3px;
+                }
+
+                &:nth-of-type(3) {
+                  margin-left: 3px;
+                }
+
+                /* 
+              //  & + &  안되는 이유 찾기!
+              & + & {
+                margin-left: 33px;
+              }
+              */
+              }
+            }
+          }
+
+          .postedImg {
+            // width: 100%;
+            // 이미 div태그임,,,? -> 불필요한 속성 제거 리팩토링
+
+            img {
+              width: 100%;
+              -webkit-user-drag: none;
+            }
+          }
+
+          .postContentContainer {
+            padding: 8px;
+
+            .interactionIconsWrapper {
+              @include flex(_, space-between, center, _);
+
+              .leftIcons {
+                i {
+                  cursor: pointer;
+
+                  // 이거 왜 안되는지 알아보기!!
+                  // & + & {
+                  //   margin-left: 5px;
+                  // }
+                }
+
+                i + i {
+                  margin-left: 5px;
+                }
+              }
+            }
+
+            .likedUsers {
+              @include flex(_, _, center, 3px);
+              margin: 8px 0;
+
+              img {
+                width: 15px;
+                height: 15px;
+                border: 1px solid $bdColor;
+                border-radius: 50%;
+              }
+
+              .bold {
+                font-weight: 700;
+              }
+            }
+
+            .postContent {
+              .postContentWrapper {
+                @include flex(_, _, _, 5px);
+
+                .posterName {
+                  font-weight: 700;
+                }
+              }
+
+              .moreContent {
+                margin-top: 2px;
+                color: $textColor;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .commentsList {
+            border-top: 1px solid $bdColor;
+
+            #uploadedCommentsBox {
+              // @include flex(column, center, _, 3px);
+              padding: 8px;
+              .more {
+                color: $textColor;
+                cursor: pointer;
+              }
+            }
+
+            form {
+              @include flex(_, space-between, center, _);
+              width: 100%;
+
+              input {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                outline: none;
+              }
+
+              button {
+                width: 7%;
+                border: none;
+                background-color: #fff;
+                color: $ctaColor;
+                font-weight: 900;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// aside 영역
+
+aside {
+  width: 320px;
+  // width: 30%;
+  .currentUserInfo {
+    @include flex(_, _, center, 15px);
+    margin-bottom: 15px;
+
+    &Img {
+      width: 70px;
+      height: 70px;
+      border: 1px solid $bdColor;
+      border-radius: 50%;
+    }
+
+    &Detail {
+      :nth-child(1) {
+        font-weight: 900;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+aside {
+  .recommendedUser {
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid $bdColor;
+    background-color: #fff;
+
+    border: 1.5px solid #ddd;
+    background-color: #fff;
+
+    &Header {
+      @include flex(_, space-between, center, _);
+      margin-bottom: 15px;
+
+      font-weight: 700;
+
+      :nth-child(1) {
+        color: $textColor;
+      }
+
+      :nth-child(2) {
+        cursor: pointer;
+      }
+    }
+
+    &List {
+      @include flex(column, _, _, 15px);
+
+      &Item {
+        @include flex(_, space-between, center, 10px);
+
+        &Wrapper {
+          @include flex(_, _, center, 10px);
+
+          img {
+            width: 40px;
+            height: 40px;
+            border: 1px solid $bdColor;
+            border-radius: 50%;
+          }
+
+          div {
+            :nth-child(1) {
+              margin-bottom: 3px;
+              font-weight: 700;
+            }
+            :nth-child(2) {
+              color: $textColor;
+            }
+          }
+        }
+
+        button {
+          border: none;
+          background-color: #fff;
+          color: $ctaColor;
+          font-weight: 900;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  color: $footerColor;
+
+  ul {
+    @include flex(_, _, _, _);
+    flex-wrap: wrap;
+    height: 30px;
+  }
+  p {
+    margin: 25px 0;
+    font-size: 10px;
+  }
 }
