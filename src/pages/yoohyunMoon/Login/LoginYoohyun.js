@@ -5,53 +5,19 @@ import './LoginYoohyun.scss';
 const LoginYoohyun = () => {
   const navigate = useNavigate();
 
-  let [userId, setUserId] = useState('');
-  let [userPw, setUserPw] = useState('');
-  const saveUserId = e => {
-    // console.log('event.target', event.target);
-    setUserId(e.target.value);
-    // console.log('userId', userId);
+  const [userId, setUserId] = useState('');
+  const [userPw, setUserPw] = useState('');
 
-    /*    if (userId.includes('@')) {
-      console.log('saveUserId 에 @가 들어가요 : true');
-      setUserId(userId);
-      // setBtnState(true);
-      activateBtn();
-      // return userId;/
-    }  */
+  const saveUserId = e => {
+    //사용자가 현재 입력하고 있는 input 창의 입력 값으로 userId 상태를 업데이트한다.
+    setUserId(e.target.value);
   };
-  console.log('userId??? ', userId);
 
   const saveUserPw = event => {
-    // userPw = event.target.value;
     setUserPw(event.target.value);
-
-    /* if (userPw.length >= 5) {
-      // console.log('userPw가 5이상이에용 : true', userPw);
-      setUserPw(userPw);
-      activateBtn();
-      // return userPw;
-    } else {
-      return false;
-    } */
   };
-  // console.log(saveUserPw);
-  console.log('userPw??? ', userPw);
 
-  // 로그인 버튼 활성화(validation)
-  const [btnState, setBtnState] = useState(false);
-  const activateBtn = () => {
-    const validId = userId && userId.includes('@');
-    const validPw = userPw && userPw.length >= 5;
-    validId && validPw ? setBtnState(true) : setBtnState(false);
-    /*   if (userId.includes('@') && userPw.length >= 5) {
-      setBtnState(true);
-    } else {
-      setBtnState(false);
-    } */
-    /* saveUserId && saveUserPw ? setBtnState(true) : setBtnState(false); */
-    // userId !== null && userPw !== null ? setBtnState(true) : setBtnState(false);
-  };
+  const activatedBtnCondition = userId.includes(`@`) && userPw.length >= 5;
 
   return (
     <div className="loginYoohyun">
@@ -79,26 +45,11 @@ const LoginYoohyun = () => {
             </div>
             <div>
               <button
-                // className={`${btnState === true} ? activate : unactivate`}
-                // className={userPw.length >= 5 ? 'activate' : 'unactivate'}
-                // className={btnState === true ? 'activate' : 'unactivate'}
-                /*   className={
-                  `${saveUserId && saveUserPw}` ? 'activate' : 'unactivate'
-                } */
-                className={
-                  userId.includes(`@`) && userPw.length >= 5
-                    ? `activate`
-                    : `unactivate`
-                }
+                className={activatedBtnCondition ? `activate` : `unactivate`}
                 onClick={() => {
                   navigate('/main-yoohyun');
                 }}
-                // onChange={activateBtn}
-                /*  onChange={
-                  userId !== null && userPw !== null
-                    ? setBtnState(true)
-                    : setBtnState(false)
-                } */
+                disabled={activatedBtnCondition ? false : true}
               >
                 로그인
               </button>
