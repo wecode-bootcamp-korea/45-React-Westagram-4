@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainYoohyun.scss';
 
 const MainYoohyun = () => {
+  const [commentValue, setCommentValue] = useState('');
+  const [commentList, setCommentList] = useState([]);
+
+  // 댓글 달기 먼저 구현하기!!!
+  const getUserComment = e => {
+    setCommentValue(e.target.value);
+  };
+
+  const uploadComment = e => {
+    e.preventDefault();
+    // console.log('here!! ', commentValue);
+    setCommentList([...commentList, commentValue]);
+    setCommentValue('');
+  };
+
   return (
     <div className="mainYoohyun">
       <header id="gnb">
@@ -161,16 +176,19 @@ const MainYoohyun = () => {
               <div className="commentsList">
                 <div id="uploadedCommentsBox">
                   <p className="more">댓글 3개 모두 보기</p>
+                  {commentList.map(commentItem => {
+                    return <li key={commentList.index}>{commentItem}</li>;
+                  })}
                 </div>
-                <form action="">
+                <form action="" onSubmit={uploadComment}>
                   <input
+                    value={commentValue}
                     className="inputReply"
                     type="text"
                     placeholder="댓글 달기..."
+                    onChange={getUserComment}
                   />
-                  <button type="submit" className="submit bold debuttonize">
-                    게시
-                  </button>
+                  <button type="submit">게시</button>
                 </form>
               </div>
             </article>
