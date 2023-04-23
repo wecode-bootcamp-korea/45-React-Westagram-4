@@ -1,0 +1,43 @@
+// common.scss
+* {
+  box-sizing: border-box;
+}
+
+// variables
+$bdColor: #ddd;
+$bgColor: #fafafa;
+$textColor: #737373;
+$ctaColor: #0095f6;
+$footerColor: #c7c7c7;
+
+// mixins
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+.commentItem {
+  @include flex(_, space-between, _, _);
+  margin-bottom: 5px;
+
+  &Detail {
+    span {
+      margin-right: 5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &Like {
+    width: 12px;
+    // padding: 2px;
+    color: red;
+    cursor: pointer;
+  }
+}
+
+// display: flex 주면 하트 모양이 세로로 줄어드는, 모양이 변형되는 것 고치기.
+// or 폰트오썸 스크립트 index에 추가하기

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MainYoohyun.scss';
+import CommentItem from './components/CommentItem';
 
 const MainYoohyun = () => {
   const [commentValue, setCommentValue] = useState('');
@@ -13,6 +14,11 @@ const MainYoohyun = () => {
   const uploadComment = e => {
     e.preventDefault();
     // console.log('here!! ', commentValue);
+
+    // Early Return을 통한 빈문자열이면, 댓글 못 달게 방지
+    if (commentValue === '') {
+      return alert('댓글을 입력해주세요.');
+    }
     setCommentList([...commentList, commentValue]);
     setCommentValue('');
   };
@@ -176,9 +182,16 @@ const MainYoohyun = () => {
               <div className="commentsList">
                 <div id="uploadedCommentsBox">
                   <p className="more">댓글 3개 모두 보기</p>
-                  {commentList.map(commentItem => {
-                    return <li key={commentList.index}>{commentItem}</li>;
-                  })}
+                  <ul>
+                    {commentList.map(comment => {
+                      return (
+                        <CommentItem
+                          key={commentList.index}
+                          comment={comment}
+                        />
+                      );
+                    })}
+                  </ul>
                 </div>
                 <form action="" onSubmit={uploadComment}>
                   <input
