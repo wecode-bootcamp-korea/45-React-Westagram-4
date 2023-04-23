@@ -22,7 +22,10 @@ export default function LoginSoobin() {
 
   const handleActive = () => {
     setActive(
-      inputId.includes('@') && inputId.length && inputPw.length >= 5
+      inputId.includes('@') &&
+        inputId.length &&
+        isNaN(inputPw) === false && // 숫자만 입력 가능
+        inputPw.length >= 5
         ? false
         : true
     );

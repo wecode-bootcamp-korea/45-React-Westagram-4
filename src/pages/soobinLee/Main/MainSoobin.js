@@ -17,7 +17,8 @@ export default function MainSoobin() {
 
   const handleAddComment = e => {
     e.preventDefault();
-    if (comment !== 0) {
+    if (comment !== 0 && comment.trim()) {
+      // input 값 공백 입력 막기
       const newComment = {
         id: uuidv4(), // key값
         user: 'user',
