@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainSoobin.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function MainSoobin() {
+  const [active, setActive] = useState(true);
+  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
+
+  const handleComment = e => {
+    setComment(e.target.value);
+  };
+
+  const handleActive = () => {
+    setActive(comment.length > 0 ? false : true);
+  };
+
+  const handleAddComment = e => {
+    e.preventDefault();
+    if (comment !== 0) {
+      const newComment = {
+        id: uuidv4(), // key값
+        user: 'user',
+        text: comment,
+      };
+      setComments([...comments, newComment]); // newcomment를 comment배열 끝에 추가
+      setComment('');
+    }
+  };
+
   return (
     <div className="wrap">
       <header>
@@ -41,7 +67,6 @@ export default function MainSoobin() {
           </div>
         </div>
       </header>
-
       <div className="wrapper">
         <div className="main">
           <div className="main_left">
@@ -68,11 +93,9 @@ export default function MainSoobin() {
                 </div>
               </div>
             </div>
-
             <div className="feed_picture">
-              <img src="/images/soobinLee/common.jpeg" alt="feed_img" />
+              <img src="/images/soobinLee/1.jpeg" alt="feed_img" />
             </div>
-
             <div className="feed_bottom">
               <div className="emoticon_box">
                 <div className="emoticon_box2">
@@ -129,7 +152,6 @@ export default function MainSoobin() {
                 </div>
               </div>
             </div>
-
             <div class="comment_section">
               <ul class="comments">
                 <li>
@@ -144,36 +166,53 @@ export default function MainSoobin() {
                       src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
                       alt="하트"
                     />
-                    <img className="red_heart" src="" alt="" />
                   </div>
                 </li>
+                <ul className="comments">
+                  {comments.map(comment => (
+                    <li key={comment.id}>
+                      <span>
+                        <span className="span_user">{comment.user}</span>
+                        {comment.text}
+                      </span>
+                      <div className="comment_like">
+                        <img
+                          className="comment_heart"
+                          src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+                          alt="하트"
+                        />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </ul>
               <div className="feed_time">
                 <p className="time">5시간 전</p>
               </div>
             </div>
-
-            <div className="input_box" />
-            <div className="comment">
+            <form>
               <span>
                 <input
                   id="input-comment2"
                   className="input-comment"
                   type="text"
+                  value={comment}
                   placeholder="댓글 달기..."
+                  onChange={handleComment}
+                  onKeyUp={handleActive}
+                  autoComplete="off"
                 />
                 <button
-                  onClick="doAction()"
+                  onClick={handleAddComment}
                   type="submit"
                   className="submit-comment"
-                  disabled
+                  disabled={active}
                 >
                   게시
                 </button>
               </span>
-            </div>
+            </form>
           </div>
-
           <div className="main_right">
             <div className="userprofilebox">
               <div className="userProflie">
@@ -297,7 +336,7 @@ export default function MainSoobin() {
               </div>
             </div>
             <div className="footer">
-              <p className="script" style={{ whiteSpace: 'pre-line' }}>
+              <p className="script">
                 Instagram 정보 ∙ 지원 ∙ 홍보 센터 ∙ API ∙
                 <br />
                 채용 정보 ∙ 개인정보처리방침 ∙ 약관 ∙ 디렉터리 ∙ 프로필 ∙
