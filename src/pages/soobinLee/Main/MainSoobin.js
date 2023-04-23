@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MainSoobin.scss';
 import { v4 as uuidv4 } from 'uuid';
+import Comment from './Comment';
 
 export default function MainSoobin() {
   const [active, setActive] = useState(true);
@@ -24,7 +25,7 @@ export default function MainSoobin() {
         user: 'user',
         text: comment,
       };
-      setComments([...comments, newComment]); // newcomment를 comment배열 끝에 추가
+      setComments([...comments, newComment]); // newcomment를 comments배열 끝에 추가
       setComment('');
     }
   };
@@ -171,19 +172,11 @@ export default function MainSoobin() {
                 </li>
                 <ul className="comments">
                   {comments.map(comment => (
-                    <li key={comment.id}>
-                      <span>
-                        <span className="span_user">{comment.user}</span>
-                        {comment.text}
-                      </span>
-                      <div className="comment_like">
-                        <img
-                          className="comment_heart"
-                          src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                          alt="하트"
-                        />
-                      </div>
-                    </li>
+                    <Comment
+                      key={comment.id}
+                      user={comment.user}
+                      text={comment.text}
+                    />
                   ))}
                 </ul>
               </ul>
