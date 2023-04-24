@@ -1,64 +1,49 @@
 import React, { useState } from 'react';
 import './MainSeungbeom.scss';
 import '../../../styles/common.scss';
-const ini = [
-  <div className="appendChild-add">
-    <div>
-      <span>wecode 다 같이 화이팅~~~!</span>
-      <span className="deleteAndLike">
-        <button className="delete-button">
-          <img
-            className="delete-commentIcon"
-            src="/images/seungbeomJeon/deleteicon.png"
-            alt=""
-          />
-        </button>
-        <button className="like-button">
-          <img
-            className="heart-commentIcon"
-            src="/images/seungbeomJeon/heart.png"
-            alt=""
-          />
-        </button>
-      </span>
-    </div>
-    <div className="comment-time">42분 전</div>
-  </div>,
-];
-
+let preventEmptyContent = '';
 const MainSeungbeom = () => {
-  const [comment, setComment] = useState('');
-  const [result, setResult] = useState(ini);
-  const commentInput = e => {
-    setComment(e.target.value);
+  const [commentList, setCommentList] = useState([
+    {
+      key: Math.random(),
+      id: 'wecode ',
+      content: '다 같이 화이팅~~~!',
+      time: '42분 전',
+      img: '/images/seungbeomJeon/heart.png',
+    },
+  ]);
+  const [comment, setComment] = useState();
+
+  const onChangeContentInput = e => {
+    setComment({
+      id: 'wecode ',
+      content: e.target.value,
+      time: '42분 전',
+      img: '/images/seungbeomJeon/heart.png',
+    });
+    preventEmptyContent = e.target.value;
   };
 
-  const commentClick = () => {
-    ini.push(
-      <div className="appendChild-add">
-        <div>
-          <span>{comment}</span>
-          <span className="deleteAndLike">
-            <button className="delete-button">
-              <img
-                className="delete-commentIcon"
-                src="/images/seungbeomJeon/deleteicon.png"
-                alt=""
-              />
-            </button>
-            <button className="like-button">
-              <img
-                className="heart-commentIcon"
-                src="/images/seungbeomJeon/heart.png"
-                alt=""
-              />
-            </button>
-          </span>
-        </div>
-        <div className="comment-time">42분 전</div>
-      </div>
-    );
-    setResult(ini);
+  const onClickCommentAdd = () => {
+    if (preventEmptyContent !== '') {
+      let key = Math.random();
+      setCommentList([...commentList, { ...comment, key }]);
+    }
+  };
+
+  const onClickCommentDelete = e => {
+    setCommentList([...commentList.filter(item => item.key !== e)]);
+  };
+
+  const onClickCommentLike = e => {
+    commentList.forEach(item => {
+      if (item.key === e.key) {
+        item.img === '/images/seungbeomJeon/heartred.png'
+          ? (item.img = '/images/seungbeomJeon/heart.png')
+          : (item.img = '/images/seungbeomJeon/heartred.png');
+        setCommentList([...commentList]);
+      }
+    });
   };
 
   return (
@@ -160,7 +145,43 @@ const MainSeungbeom = () => {
                   내용추가
                 </details>
               </div>
-              <div className="comment-next">{result}</div>
+              <div className="comment-next">
+                {commentList.map(item => {
+                  return (
+                    <div className="appendChild-add" key={item.key}>
+                      <div>
+                        <span>
+                          {item.id}
+                          {item.content}
+                        </span>
+                        <span className="deleteAndLike">
+                          <button
+                            className="delete-button"
+                            onClick={() => onClickCommentDelete(item.key)}
+                          >
+                            <img
+                              className="delete-commentIcon"
+                              src="/images/seungbeomJeon/deleteicon.png"
+                              alt=""
+                            />
+                          </button>
+                          <button
+                            className="like-button"
+                            onClick={() => onClickCommentLike(item)}
+                          >
+                            <img
+                              className="heart-commentIcon"
+                              src={item.img}
+                              alt=""
+                            />
+                          </button>
+                        </span>
+                      </div>
+                      <div className="comment-time">{item.time}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className="comment-create">
@@ -168,9 +189,9 @@ const MainSeungbeom = () => {
               className="comment-input"
               type="text"
               placeholder="댓글 달기..."
-              onChange={commentInput}
+              onChange={onChangeContentInput}
             />
-            <button className="comment-button" onClick={commentClick}>
+            <button className="comment-button" onClick={onClickCommentAdd}>
               게시
             </button>
           </div>
