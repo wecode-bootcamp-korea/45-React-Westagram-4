@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './MainYoohyun.scss';
 import CommentItem from './components/CommentItem';
+import './MainYoohyun.scss';
 
 const MainYoohyun = () => {
   const [commentValue, setCommentValue] = useState('');
