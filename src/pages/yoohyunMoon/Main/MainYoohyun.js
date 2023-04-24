@@ -19,7 +19,11 @@ const MainYoohyun = () => {
     if (commentValue === '') {
       return alert('댓글을 입력해주세요.');
     }
-    setCommentList([...commentList, commentValue]);
+    // setCommentList([commentValue, ...commentList]);
+    setCommentList([
+      ...commentList,
+      { id: String(commentList.length + 1), text: commentValue },
+    ]);
     setCommentValue('');
   };
 
@@ -183,8 +187,10 @@ const MainYoohyun = () => {
                 <div id="uploadedCommentsBox">
                   <p className="more">댓글 3개 모두 보기</p>
                   <ul>
-                    {commentList.map((comment, index) => {
-                      return <CommentItem key={index} comment={comment} />;
+                    {commentList.map(comment => {
+                      return (
+                        <CommentItem key={comment.id} comment={comment.text} />
+                      );
                     })}
                   </ul>
                 </div>
