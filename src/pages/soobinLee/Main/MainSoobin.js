@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './MainSoobin.scss';
 import { v4 as uuidv4 } from 'uuid';
 import Comment from './Comment';
+import './MainSoobin.scss';
 
 export default function MainSoobin() {
   const [active, setActive] = useState(true);
@@ -31,7 +31,7 @@ export default function MainSoobin() {
   };
 
   return (
-    <div className="wrap">
+    <div className="MainSoobin">
       <header>
         <div className="nav">
           <div className="westagram_logo">

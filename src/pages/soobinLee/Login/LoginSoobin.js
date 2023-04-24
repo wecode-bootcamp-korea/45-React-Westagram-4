@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../Login/LoginSoobin.scss';
 import { useNavigate } from 'react-router-dom';
+import '../Login/LoginSoobin.scss';
 
 export default function LoginSoobin() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function LoginSoobin() {
     );
   };
   return (
-    <div className="wrap">
+    <div className="LoginSoobin">
       <div className="container">
         <div className="inner">
           <h1 className="logo">Westagram</h1>
