@@ -183,13 +183,8 @@ const MainYoohyun = () => {
                 <div id="uploadedCommentsBox">
                   <p className="more">댓글 3개 모두 보기</p>
                   <ul>
-                    {commentList.map(comment => {
-                      return (
-                        <CommentItem
-                          key={commentList.index}
-                          comment={comment}
-                        />
-                      );
+                    {commentList.map((comment, index) => {
+                      return <CommentItem key={index} comment={comment} />;
                     })}
                   </ul>
                 </div>
