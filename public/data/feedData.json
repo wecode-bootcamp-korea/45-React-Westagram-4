@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "profileSrc": "/images/soobinLee/common.jpeg",
+    "profileId": "kendalljenner",
+    "imgSrc": "/images/soobinLee/2.jpeg",
+    "feedScript": "hello!",
+    "commentId": "xxxibgdrgn",
+    "comment1": "how are you?"
+  },
+
+  {
+    "id": 2,
+    "profileSrc": "/images/soobinLee/common.jpeg",
+    "profileId": "gigihadid",
+    "imgSrc": "/images/soobinLee/NewYork2.jpg",
+    "feedScript": "world!",
+    "commentId": "_xxruby",
+    "comment1": "what's up?!"
+  },
+
+  {
+    "id": 3,
+    "profileSrc": "/images/soobinLee/common.jpeg",
+    "profileId": "kimkardashian",
+    "imgSrc": "/images/soobinLee/movie.jpeg",
+    "feedScript": "hello world!",
+    "commentId": "ye",
+    "comment1": "hey"
+  }
+]
