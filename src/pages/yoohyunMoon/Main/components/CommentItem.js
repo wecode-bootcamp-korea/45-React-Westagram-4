@@ -1,14 +1,15 @@
 import React from 'react';
 import './CommentItem.scss';
 
-const COMMENTER_ID = 'wecode';
+// const COMMENTER_ID = 'wecode';
 
 function CommentItem({ comment }) {
+  console.log(comment);
   return (
     <li className="commentItem">
       <div className="commentItemDetail">
-        <span>{COMMENTER_ID}</span>
-        {comment}
+        <span>{comment.commenter}</span>
+        {comment.commentText}
       </div>
       <div>
         <img

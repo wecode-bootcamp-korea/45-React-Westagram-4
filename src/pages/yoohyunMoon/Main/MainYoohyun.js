@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import FeedItem from './components/FeedItem';
 import CommentItem from './components/CommentItem';
 import { FOOTER_INFO } from './FOOTER_INFO';
 import './MainYoohyun.scss';
 
 const MainYoohyun = () => {
+  /* 
+  댓글 작성 관련 코드 FeedItem component로 이전
+  
   const [commentValue, setCommentValue] = useState('');
   const [commentList, setCommentList] = useState([]);
 
@@ -26,7 +30,24 @@ const MainYoohyun = () => {
       { id: String(commentList.length + 1), text: commentValue },
     ]);
     setCommentValue('');
-  };
+  }; */
+
+  const [feedList, setFeedList] = useState([]);
+  const [recommendData, setRecommendData] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/feedList.json')
+      .then(response => response.json())
+      .then(data => {
+        setFeedList(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('/data/recommendData.json')
+      .then(res => res.json())
+      .then(data => setRecommendData(data));
+  }, []);
 
   return (
     <div className="mainYoohyun">
@@ -123,7 +144,12 @@ const MainYoohyun = () => {
               </li>
             </ul>
           </div>
-          <section className="postsContainer">
+          {/* feedItem position */}
+          {feedList.map(feed => (
+            <FeedItem key={feed.id} feed={feed} />
+          ))}
+
+          {/*  <section className="postsContainer">
             <article>
               <div className="postHeader">
                 <div className="posterInfoWrapper">
@@ -207,7 +233,7 @@ const MainYoohyun = () => {
                 </form>
               </div>
             </article>
-          </section>
+          </section> */}
         </div>
         <aside>
           <div className="currentUserInfo">
@@ -227,20 +253,24 @@ const MainYoohyun = () => {
               <span>모두 보기</span>
             </div>
             <ul className="recommendedUserList">
-              <li className="recommendedUserListItem">
-                <div className="recommendedUserListItemWrapper">
-                  <img
-                    alt="first recommended user profile"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    className="profileImg"
-                  />
-                  <div>
-                    <h4>tellmemoreaboutu</h4>
-                    <p>회원님이 팔로우합니다</p>
-                  </div>
-                </div>
-                <button className="debuttonize">팔로우</button>
-              </li>
+              {recommendData.map(data => {
+                return (
+                  <li className="recommendedUserListItem" key={data.id}>
+                    <div className="recommendedUserListItemWrapper">
+                      <img
+                        alt="recommended user profile"
+                        src={data.img}
+                        className="profileImg"
+                      />
+                      <div>
+                        <h4>{data.userName}</h4>
+                        <p>{data.followStatus}</p>
+                      </div>
+                    </div>
+                    <button className="debuttonize">팔로우</button>
+                  </li>
+                );
+              })}
 
               {/*  
               // 이후 map을 통해 구현할 부분

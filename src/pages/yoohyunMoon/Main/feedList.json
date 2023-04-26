@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "posterImg": "/images/yoohyunMoon/profile_photo.jpg",
+    "posterName": "dream_coder",
+    "createdAt": "4일",
+    "img": "/images/yoohyunMoon/post_dog_photo.jpg",
+    "likerName": "wework",
+    "likesCount": 213,
+    "content": "오늘도 감사한 하루💖",
+    "commentCount": 3
+  },
+  {
+    "id": 2,
+    "posterImg": "https://placeimg.com/300/300/any",
+    "posterName": "nomad_coder",
+    "createdAt": "1일",
+    "img": "https://placeimg.com/630/570/any",
+    "likerName": "wecode",
+    "likesCount": 100,
+    "content": "두 번째 포스팅 📑",
+    "commentCount": 2
+  },
+  {
+    "id": 3,
+    "posterImg": "https://placeimg.com/300/300/any",
+    "posterName": "nomad__worker",
+    "createdAt": "5시간",
+    "img": "https://placeimg.com/630/570/any",
+    "likerName": "moon",
+    "likesCount": 23,
+    "content": "세 번째 포스팅 ✏️",
+    "commentCount": 15
+  }
+]
