@@ -120,9 +120,11 @@ main {
                 padding-top: 2px;
                 button {
                   .delete-commentIcon {
+                    width: 13px;
                     height: 15px;
                   }
                   .heart-commentIcon {
+                    width: 13px;
                     height: 15px;
                   }
                 }
@@ -202,6 +204,15 @@ main {
       }
     }
     footer {
+      .test11 {
+        li {
+          display: inline-block;
+          margin-right: 5px;
+          &::after {
+            content: '\00B7';
+          }
+        }
+      }
     }
   }
 }

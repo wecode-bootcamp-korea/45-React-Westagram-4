@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "feedImg": "/images/seungbeomJeon/feed.jpg",
+    "userName": "seungbeom-jeon1",
+    "userImg": "/images/seungbeomJeon/wecode.png",
+    "likeNum": 1,
+    "feedContent": "위워크에서 1주차 시작..."
+  },
+  {
+    "id": 2,
+    "feedImg": "/images/seungbeomJeon/feed.jpg",
+    "userName": "seungbeom-jeon2",
+    "userImg": "/images/seungbeomJeon/wecode.png",
+    "likeNum": 2,
+    "feedContent": "위워크에서 2주차 시작..."
+  },
+  {
+    "id": 3,
+    "feedImg": "/images/seungbeomJeon/feed.jpg",
+    "userName": "seungbeom-jeon3",
+    "userImg": "/images/seungbeomJeon/wecode.png",
+    "likeNum": 3,
+    "feedContent": "위워크에서 3주차 시작..."
+  },
+  {
+    "id": 4,
+    "feedImg": "/images/seungbeomJeon/feed.jpg",
+    "userName": "seungbeom-jeon4",
+    "userImg": "/images/seungbeomJeon/wecode.png",
+    "likeNum": 4,
+    "feedContent": "위워크에서 4주차 시작..."
+  },
+  {
+    "id": 5,
+    "feedImg": "/images/seungbeomJeon/feed.jpg",
+    "userName": "seungbeom-jeon5",
+    "userImg": "/images/seungbeomJeon/wecode.png",
+    "likeNum": 5,
+    "feedContent": "위워크에서 5주차 시작..."
+  }
+]
