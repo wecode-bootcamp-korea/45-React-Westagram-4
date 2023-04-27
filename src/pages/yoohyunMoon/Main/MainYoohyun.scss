@@ -114,48 +114,8 @@ $footerColor: #c7c7c7;
       // width: 70%;
       margin-right: 50px;
 
-      .storiesContainer {
-        margin-bottom: 35px;
-
-        ul {
-          display: flex;
-          gap: 17px;
-
-          li {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-
-            div {
-              position: relative;
-
-              width: 80px;
-              height: 80px;
-
-              margin-bottom: 5px;
-
-              border: 3px solid transparent;
-              border-radius: 50%;
-
-              background-image: linear-gradient(#fff, #fff),
-                linear-gradient(to right, red 0%, orange 100%);
-              background-origin: border-box;
-              background-clip: content-box, border-box;
-
-              img {
-                position: absolute;
-                top: 2.5px;
-                left: 2.5px;
-                width: 70px;
-                height: 70px;
-                border: 1px solid $bdColor;
-                border-radius: 50%;
-              }
-            }
-          }
-        }
+      .stories {
+        @include flex(_, _, _, 23px);
       }
     }
   }
