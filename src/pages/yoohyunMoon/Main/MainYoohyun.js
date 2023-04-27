@@ -1,38 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import FeedItem from './components/FeedItem';
-import CommentItem from './components/CommentItem';
 import { FOOTER_INFO } from './FOOTER_INFO';
 import './MainYoohyun.scss';
 import StoryItem from './components/StoryItem';
+import Nav from './components/Nav';
 
 const MainYoohyun = () => {
-  /* 
-  댓글 작성 관련 코드 FeedItem component로 이전
-  
-  const [commentValue, setCommentValue] = useState('');
-  const [commentList, setCommentList] = useState([]);
-
-  // 댓글 달기 먼저 구현하기!!!
-  const getUserComment = e => {
-    setCommentValue(e.target.value);
-  };
-
-  const uploadComment = e => {
-    e.preventDefault();
-    // console.log('here!! ', commentValue);
-
-    // Early Return을 통한 빈문자열이면, 댓글 못 달게 방지
-    if (commentValue === '') {
-      return alert('댓글을 입력해주세요.');
-    }
-    // setCommentList([commentValue, ...commentList]);
-    setCommentList([
-      ...commentList,
-      { id: String(commentList.length + 1), text: commentValue },
-    ]);
-    setCommentValue('');
-  }; */
-
   const [feedList, setFeedList] = useState([]);
   const [recommendData, setRecommendData] = useState([]);
   const [storyList, setStoryList] = useState([]);
@@ -61,106 +34,14 @@ const MainYoohyun = () => {
 
   return (
     <div className="mainYoohyun">
-      <header id="gnb">
-        <div>
-          <h1 id="logo">
-            <a href="#">Westagram</a>
-          </h1>
-        </div>
-        <div className="searchContainer">
-          <input type="text" />
-          <div className="searchWrapper">
-            <i class="fa-solid fa-magnifying-glass" />
-            <span>검색</span>
-          </div>
-        </div>
-        <nav className="navIconsContainer">
-          <a href="#">
-            <img
-              alt="navigation icon"
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-              width="25px"
-            />
-          </a>
-          <a href="">
-            <img
-              alt="heart icon"
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-              width="25px"
-            />
-          </a>
-          <a href="">
-            <img
-              alt="user profile icon"
-              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-              width="25px"
-            />
-          </a>
-        </nav>
-      </header>
+      <Nav />
       <main>
         <div className="leftColumnWrap">
-          {/* story position */}
           <div className="stories">
             {storyList.map(story => {
               return <StoryItem key={story.id} story={story} />;
             })}
           </div>
-
-          {/* <div className="storiesContainer">
-            <ul>
-              <li>
-                <div>
-                  <img
-                    alt="story poster profile"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="profileImg"
-                  />
-                </div>
-                <p>iam_dam</p>
-              </li>
-              <li>
-                <div>
-                  <img
-                    alt="story poster profile pic"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="profileImg"
-                  />
-                </div>
-                <p>iam_dam</p>
-              </li>
-              <li>
-                <div>
-                  <img
-                    alt="story poster profile"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="profileImg"
-                  />
-                </div>
-                <p>iam_dam</p>
-              </li>
-              <li>
-                <div>
-                  <img
-                    alt="story poster profile pic"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="profileImg"
-                  />
-                </div>
-                <p>iam_dam</p>
-              </li>
-              <li>
-                <div>
-                  <img
-                    alt="story poster profile pic"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="profileImg"
-                  />
-                </div>
-                <p>iam_dam</p>
-              </li>
-            </ul>
-          </div> */}
           {feedList.map(feed => (
             <FeedItem key={feed.id} feed={feed} />
           ))}
@@ -187,17 +68,13 @@ const MainYoohyun = () => {
                 return (
                   <li className="recommendedUserListItem" key={data.id}>
                     <div className="recommendedUserListItemWrapper">
-                      <img
-                        alt="recommended user profile"
-                        src={data.img}
-                        className="profileImg"
-                      />
+                      <img alt="recommended user profile" src={data.img} />
                       <div>
                         <h4>{data.userName}</h4>
                         <p>{data.followStatus}</p>
                       </div>
                     </div>
-                    <button className="debuttonize">팔로우</button>
+                    <button>팔로우</button>
                   </li>
                 );
               })}
