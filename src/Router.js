@@ -15,8 +15,8 @@ const Router = () => {
       <Routes>
         <Route path="/login-yoohyun" element={<LoginYoohyun />} />
         <Route path="/main-yoohyun" element={<MainYoohyun />} />
-        <Route path="/login-soobin" element={<LoginSoobin />} />
-        <Route path="/main-soobin" element={<MainSoobin />} />
+        <Route path="/LoginSoobin" element={<LoginSoobin />} />
+        <Route path="/MainSoobin" element={<MainSoobin />} />
         <Route path="/login-seungbeom" element={<LoginSeungbeom />} />
         <Route path="/main-seungbeom" element={<MainSeungbeom />} />
       </Routes>
