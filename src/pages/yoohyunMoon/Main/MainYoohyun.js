@@ -4,6 +4,7 @@ import { FOOTER_INFO } from './FOOTER_INFO';
 import './MainYoohyun.scss';
 import StoryItem from './components/StoryItem';
 import Nav from './components/Nav';
+import RecommendItem from './components/RecommendItem';
 
 const MainYoohyun = () => {
   const [feedList, setFeedList] = useState([]);
@@ -63,7 +64,8 @@ const MainYoohyun = () => {
               <h3>회원님을 위한 추천</h3>
               <span>모두 보기</span>
             </div>
-            <ul className="recommendedUserList">
+            <RecommendItem recommendData={recommendData} />
+            {/* <ul className="recommendedUserList">
               {recommendData.map(data => {
                 return (
                   <li className="recommendedUserListItem" key={data.id}>
@@ -78,7 +80,7 @@ const MainYoohyun = () => {
                   </li>
                 );
               })}
-            </ul>
+            </ul> */}
           </div>
           <footer>
             <ul>

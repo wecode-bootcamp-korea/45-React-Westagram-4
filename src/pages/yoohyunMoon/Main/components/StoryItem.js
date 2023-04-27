@@ -1,7 +1,8 @@
 import './StoryItem.scss';
 
 function StoryItem({ story }) {
-  console.log('story props!! ', story);
+  // console.log('story props!! ', story);
+
   return (
     <div className="storyItem">
       <ul>

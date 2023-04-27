@@ -1,3 +1,6 @@
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+
 // common.scss
 * {
   box-sizing: border-box;
@@ -14,26 +17,6 @@ li {
 
 // font
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-// variables
-$bdColor: #ddd;
-$bgColor: #fafafa;
-$textColor: #737373;
-$ctaColor: #0095f6;
-$footerColor: #c7c7c7;
-
-// mixins
-@mixin flex($direction, $justify, $align, $gap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-}
-
-// nav bar
-.mainYoohyun {
-}
 
 // main
 .mainYoohyun {
@@ -81,67 +64,6 @@ aside {
 }
 
 aside {
-  .recommendedUser {
-    padding: 15px;
-    margin-bottom: 30px;
-    border: 1px solid $bdColor;
-    background-color: #fff;
-
-    border: 1.5px solid #ddd;
-    background-color: #fff;
-
-    &Header {
-      @include flex(_, space-between, center, _);
-      margin-bottom: 15px;
-
-      font-weight: 700;
-
-      :nth-child(1) {
-        color: $textColor;
-      }
-
-      :nth-child(2) {
-        cursor: pointer;
-      }
-    }
-
-    &List {
-      @include flex(column, _, _, 15px);
-
-      &Item {
-        @include flex(_, space-between, center, 10px);
-
-        &Wrapper {
-          @include flex(_, _, center, 10px);
-
-          img {
-            width: 40px;
-            height: 40px;
-            border: 1px solid $bdColor;
-            border-radius: 50%;
-          }
-
-          div {
-            :nth-child(1) {
-              margin-bottom: 3px;
-              font-weight: 700;
-            }
-            :nth-child(2) {
-              color: $textColor;
-            }
-          }
-        }
-
-        button {
-          border: none;
-          background-color: #fff;
-          color: $ctaColor;
-          font-weight: 900;
-          cursor: pointer;
-        }
-      }
-    }
-  }
 }
 
 footer {
