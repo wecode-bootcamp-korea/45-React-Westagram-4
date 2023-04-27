@@ -4,6 +4,7 @@
     "profileSrc": "/images/soobinLee/common.jpeg",
     "profileId": "kendalljenner",
     "imgSrc": "/images/soobinLee/2.jpeg",
+    "location": "LA City in California",
     "feedScript": "hello!",
     "commentId": "xxxibgdrgn",
     "comment1": "how are you?"
@@ -14,6 +15,7 @@
     "profileSrc": "/images/soobinLee/common.jpeg",
     "profileId": "gigihadid",
     "imgSrc": "/images/soobinLee/NewYork2.jpg",
+    "location": "New York, New York",
     "feedScript": "world!",
     "commentId": "_xxruby",
     "comment1": "what's up?!"
@@ -24,6 +26,7 @@
     "profileSrc": "/images/soobinLee/common.jpeg",
     "profileId": "kimkardashian",
     "imgSrc": "/images/soobinLee/movie.jpeg",
+    "location": "LA City in California",
     "feedScript": "hello world!",
     "commentId": "ye",
     "comment1": "hey"

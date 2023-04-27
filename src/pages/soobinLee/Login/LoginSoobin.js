@@ -4,8 +4,7 @@ import '../Login/LoginSoobin.scss';
 
 export default function LoginSoobin() {
   const navigate = useNavigate();
-  const handleLogin = () => navigate('/MainSoobin');
-
+  const handleLogin = () => navigate('/MainSoobin'); //fetch 로 로그인/회원가입 인증 보내기
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
   const [active, setActive] = useState(true); // disabled : true

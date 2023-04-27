@@ -7,6 +7,7 @@ export default function Feed({
   profileSrc,
   profileId,
   imgSrc,
+  location,
   feedScript,
   commentId,
   comment1,
@@ -51,7 +52,7 @@ export default function Feed({
               </div>
               <div className="id_place">
                 <div className="id_name">{profileId}</div>
-                <div className="place">선릉역 10번 출구</div>
+                <div className="place">{location}</div>
               </div>
             </div>
             <div className="more_details">

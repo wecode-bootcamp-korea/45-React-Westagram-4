@@ -196,15 +196,15 @@ export default function MainSoobin() {
               </div>
             </div>
             <div className="footer">
-              <div className="script">
+              <ul className="script">
                 {FOOTER_INFO_LIST.map(info => (
-                  <span key={info.id}>
-                    <span className="script2" href={info.href}>
+                  <li key={info.id}>
+                    <li className="script2" href={info.href}>
                       {info.title}
-                    </span>
-                  </span>
+                    </li>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
