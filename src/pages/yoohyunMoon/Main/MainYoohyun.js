@@ -64,7 +64,7 @@ const MainYoohyun = () => {
               <h3>회원님을 위한 추천</h3>
               <span>모두 보기</span>
             </div>
-            <RecommendItem recommendData={recommendData} />
+            <RecommendItem recommendData={recommendData && recommendData} />
             {/* <ul className="recommendedUserList">
               {recommendData.map(data => {
                 return (
