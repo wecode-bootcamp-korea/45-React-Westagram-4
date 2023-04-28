@@ -1,24 +1,18 @@
 import './RecommendItem.scss';
 
-function RecommendItem(props) {
-  console.log('recommend! ', props);
-
+function RecommendItem({ recommend }) {
   return (
     <ul className="recommendedUserList">
-      {recommendData.map(data => {
-        return (
-          <li className="recommendedUserListItem" key={data.id}>
-            <div className="recommendedUserListItemWrapper">
-              <img alt="recommended user profile" src={data.img} />
-              <div>
-                <h4>{data.userName}</h4>
-                <p>{data.followStatus}</p>
-              </div>
-            </div>
-            <button>팔로우</button>
-          </li>
-        );
-      })}
+      <li className="recommendedUserListItem">
+        <div className="recommendedUserListItemWrapper">
+          <img alt="recommended user profile" src={recommend.img} />
+          <div>
+            <h4>{recommend.userName}</h4>
+            <p>{recommend.followStatus}</p>
+          </div>
+        </div>
+        <button>팔로우</button>
+      </li>
     </ul>
   );
 }
