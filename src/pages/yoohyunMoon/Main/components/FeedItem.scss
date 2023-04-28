@@ -1,35 +1,7 @@
-// common.scss
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-li {
-  list-style: none;
-}
-
-// variables
-$bdColor: #ddd;
-$bgColor: #fafafa;
-$textColor: #737373;
-$ctaColor: #0095f6;
-$footerColor: #c7c7c7;
-
-// mixins
-@mixin flex($direction, $justify, $align, $gap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-}
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/mixin.scss';
 
 .feedItem {
-  // bottom-up 방식이 아닌 것 같다
   width: 630px;
 
   article {
@@ -66,7 +38,6 @@ $footerColor: #c7c7c7;
       }
 
       .moreOptionsWrapper {
-        // 영역 내부에 포함된 span 자식들(점)을 세로 중앙 정렬시키는 코드
         @include flex(_, _, center, _);
         cursor: pointer;
 
@@ -77,29 +48,15 @@ $footerColor: #c7c7c7;
           border: 1px solid #000;
           border-radius: 50%;
           background-color: #000;
-
-          &:nth-of-type(2) {
-            margin-left: 3px;
-          }
-
-          &:nth-of-type(3) {
-            margin-left: 3px;
-          }
-
-          /* 
-        //  & + &  안되는 이유 찾기!
-        & + & {
-          margin-left: 33px;
         }
-        */
+
+        span + span {
+          margin-left: 3px;
         }
       }
     }
 
     .postedImg {
-      // width: 100%;
-      // 이미 div태그임,,,? -> 불필요한 속성 제거 리팩토링
-
       img {
         width: 100%;
         -webkit-user-drag: none;
@@ -115,11 +72,6 @@ $footerColor: #c7c7c7;
         .leftIcons {
           i {
             cursor: pointer;
-
-            // 이거 왜 안되는지 알아보기!!
-            // & + & {
-            //   margin-left: 5px;
-            // }
           }
 
           i + i {
@@ -166,7 +118,6 @@ $footerColor: #c7c7c7;
       border-top: 1px solid $bdColor;
 
       #uploadedCommentsBox {
-        // @include flex(column, center, _, 3px);
         padding: 8px;
 
         .more {

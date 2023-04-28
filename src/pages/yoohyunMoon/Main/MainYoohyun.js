@@ -31,8 +31,6 @@ const MainYoohyun = () => {
       .then(data => setStoryList(data));
   }, []);
 
-  console.log('storyList', storyList);
-
   return (
     <div className="mainYoohyun">
       <Nav />
@@ -72,23 +70,6 @@ const MainYoohyun = () => {
                 />
               );
             })}
-            {/* <RecommendItem recommendData={recommendData && recommendData} /> */}
-            {/* <ul className="recommendedUserList">
-              {recommendData.map(data => {
-                return (
-                  <li className="recommendedUserListItem" key={data.id}>
-                    <div className="recommendedUserListItemWrapper">
-                      <img alt="recommended user profile" src={data.img} />
-                      <div>
-                        <h4>{data.userName}</h4>
-                        <p>{data.followStatus}</p>
-                      </div>
-                    </div>
-                    <button>팔로우</button>
-                  </li>
-                );
-              })}
-            </ul> */}
           </div>
           <footer>
             <ul>

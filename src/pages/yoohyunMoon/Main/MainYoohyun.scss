@@ -1,24 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import '../../../styles/variable.scss';
 @import '../../../styles/mixin.scss';
 
-// common.scss
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-li {
-  list-style: none;
-}
-
-// font
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-// main
 .mainYoohyun {
   main {
     @include flex(_, center, _, 30px);

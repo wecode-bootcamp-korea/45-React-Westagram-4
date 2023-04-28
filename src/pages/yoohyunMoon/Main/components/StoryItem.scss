@@ -1,9 +1,4 @@
-// variables
-$bdColor: #ddd;
-$bgColor: #fafafa;
-$textColor: #737373;
-$ctaColor: #0095f6;
-$footerColor: #c7c7c7;
+@import '../../../../styles/variable.scss';
 
 .storyItem {
   margin-bottom: 35px;

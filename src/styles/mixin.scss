@@ -5,3 +5,12 @@
   align-items: $align;
   gap: $gap;
 }
+
+@mixin colors {
+  &.unactivate {
+    background-color: $btnColor;
+  }
+  &.activate {
+    background-color: $activatedBtnColor;
+  }
+}

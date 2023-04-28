@@ -1,39 +1,6 @@
-// common.scss
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-// font
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-// variables
-$bdColor: #ddd;
-$bgColor: #fafafa;
-$btnColor: #4cb5f9;
-$activatedBtnColor: #1877f2;
-
-// mixins
-@mixin flex($direction, $justify, $align, $gap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-}
-
-@mixin colors {
-  &.unactivate {
-    background-color: $btnColor;
-  }
-  &.activate {
-    background-color: $activatedBtnColor;
-  }
-}
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
 
 .loginYoohyun {
   @include flex(_, center, center, _);
@@ -86,13 +53,11 @@ $activatedBtnColor: #1877f2;
     border: none;
     border-radius: 9px;
 
-    // background-color: $btnColor;
     color: #fff;
     font-size: 1.1rem;
     font-weight: 700;
 
-    /* 상태 관리 후 적용될 코드 : 버튼 활성화 */
-    /* transition: background-color 0.1s ease-in-out; */
+    transition: background-color 0.3s ease-in-out;
 
     cursor: pointer;
   }

@@ -1,23 +1,5 @@
-// common.scss
-* {
-  box-sizing: border-box;
-}
-
-// variables
-$bdColor: #ddd;
-$bgColor: #fafafa;
-$textColor: #737373;
-$ctaColor: #0095f6;
-$footerColor: #c7c7c7;
-
-// mixins
-@mixin flex($direction, $justify, $align, $gap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-}
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/mixin.scss';
 
 .commentItem {
   @include flex(_, space-between, _, _);
@@ -36,6 +18,3 @@ $footerColor: #c7c7c7;
     cursor: pointer;
   }
 }
-
-// display: flex 주면 하트 모양이 세로로 줄어드는, 모양이 변형되는 것 고치기. => div 태그로 감싸는 것을 통해 해결!
-// or 폰트오썸 스크립트 index에 추가하기
