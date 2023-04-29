@@ -1,10 +1,7 @@
 import React from 'react';
 import './CommentItem.scss';
 
-// const COMMENTER_ID = 'wecode';
-
 function CommentItem({ comment }) {
-  console.log(comment);
   return (
     <li className="commentItem">
       <div className="commentItemDetail">

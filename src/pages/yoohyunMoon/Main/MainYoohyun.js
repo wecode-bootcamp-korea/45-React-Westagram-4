@@ -19,6 +19,10 @@ const MainYoohyun = () => {
       });
   }, []);
 
+  // 왜 feed를 부모에서 전달받아올 때 , &&을 안써도 되는 거지? 원래 빈 배열로 초기값을 설정되어있는데 그것과는 상관없는걸까??
+  //  처음에는 빈배열이 나오긴 한다. 그렇담 이런 처음 상황에서는 왜 오류가 안나는걸까? cannot read undefined~~
+  console.log('feedList 빈배열? ', feedList);
+
   useEffect(() => {
     fetch('/data/recommendData.json')
       .then(res => res.json())

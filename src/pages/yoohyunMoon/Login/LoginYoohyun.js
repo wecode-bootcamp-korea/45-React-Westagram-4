@@ -37,13 +37,13 @@ const LoginYoohyun = () => {
 
           // 'authorization'라는 로컬스토리지에 저장될 키 값이 백엔드에서 설정한 키와 동일해야 함.
           localStorage.setItem('authorization', data.authorization);
+          navigate('/main-yoohyun');
         } else if (data.message === 'PASSWORD_IS_NOT_VALID') {
           alert('비밀번호 규칙(대문자, 소문자, 기호의 혼용)을 확인하세요.');
         } else if (data.message === 'INVALID_EMAIL_OR_PASSWORD') {
           alert('이메일 혹은 비밀번호를 확인해주세요.');
         }
       });
-    navigate('/main-yoohyun');
   };
 
   const activatedBtnCondition =
