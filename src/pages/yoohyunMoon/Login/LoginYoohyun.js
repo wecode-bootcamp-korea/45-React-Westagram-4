@@ -5,16 +5,14 @@ import './LoginYoohyun.scss';
 const LoginYoohyun = () => {
   const navigate = useNavigate();
 
-  const [userId, setUserId] = useState('');
-  const [userPw, setUserPw] = useState('');
+  const [userInfo, setUserInfo] = useState({
+    email: '',
+    password: '',
+  });
 
-  const saveUserId = e => {
-    //사용자가 현재 입력하고 있는 input 창의 입력 값으로 userId 상태를 업데이트한다.
-    setUserId(e.target.value);
-  };
-
-  const saveUserPw = event => {
-    setUserPw(event.target.value);
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
   /*   const handleLogin = e => {
@@ -89,8 +87,8 @@ const LoginYoohyun = () => {
       body: JSON.stringify({
         // email: 'test2@naver.com',
         // password: 'abcABC123!',
-        email: userId,
-        password: userPw,
+        // email: userId,
+        // password: userPw,
       }),
     })
       .then(response => {
@@ -126,7 +124,8 @@ const LoginYoohyun = () => {
       });
   };
 
-  const activatedBtnCondition = userId.includes(`@`) && userPw.length >= 5;
+  const activatedBtnCondition =
+    userInfo.email.includes(`@`) && userInfo.password.length >= 5;
 
   return (
     <div className="loginYoohyun">
@@ -141,7 +140,8 @@ const LoginYoohyun = () => {
                 type="text"
                 minLength="1"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
-                onChange={saveUserId}
+                name="email"
+                onChange={handleInput}
               />
             </div>
             <div>
@@ -149,20 +149,15 @@ const LoginYoohyun = () => {
                 type="password"
                 minLength="1"
                 placeholder="비밀번호"
-                onChange={saveUserPw}
+                name="password"
+                onChange={handleInput}
               />
             </div>
             <div>
               <button
                 className={activatedBtnCondition ? `activate` : `unactivate`}
-                onClick={
-                  handleLogin
-                  /* e => {
-                  e.preventDefault();
-                  navigate('/main-yoohyun');
-                } */
-                }
-                disabled={activatedBtnCondition ? false : true}
+                onClick={handleLogin}
+                disabled={!activatedBtnCondition}
               >
                 로그인
               </button>
