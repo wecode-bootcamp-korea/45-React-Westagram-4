@@ -15,68 +15,7 @@ const LoginYoohyun = () => {
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  /*   const handleLogin = e => {
-    e.preventDefault();
-    fetch('http://10.58.52.222:3000/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        email: userId,
-        password: userPw,
-      }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // if (data.token) {
-        //   console.log('token 📢📢📢', data.token);
-        //   localStorage.setItem('wtw-token', data.token);
-        // }
-      });
-    // navigate('/main-yoohyun');
-  }; */
-
-  /*  const handleLogin = e => {
-    e.preventDefault();
-    fetch('http://10.58.52.222:3000/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-      body: JSON.stringify({
-        // email: 'test2@naver.com',
-        // password: 'abcABC123!',
-        email: userId,
-        password: userPw,
-      }),
-    })
-      .then(response => {
-        if (response.ok === true) {
-          return response.json();
-        } else {
-          alert('아이디 혹은 비밀번호를 확인해주세요.');
-        }
-      })
-      .then(data => {
-        if (data.message === 'success') {
-          console.log('data 🐶✏️💥✅4️⃣', data);
-          alert('로그인 성공!');
-          localStorage.setItem('authorization', data.authorization);
-        }
-
-        // console.log(data.message);
-        //  if (data.message === 'PASSWORD_IS_NOT_VALID') {
-
-        // } else if (data.message === 'success') {
-        //   console.log('data 🐶✏️💥✅4️⃣', data);
-        //   alert('로그인 성공!');
-        //   localStorage.setItem('authorization', data.authorization);
-        // }
-      });
-  }; */
-
+  // 로그인 실습
   const handleLogin = e => {
     e.preventDefault();
     fetch('http://10.58.52.222:3000/users/login', {
@@ -85,43 +24,26 @@ const LoginYoohyun = () => {
         'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
-        // email: 'test2@naver.com',
-        // password: 'abcABC123!',
-        // email: userId,
-        // password: userPw,
+        email: userInfo.email,
+        password: userInfo.password,
       }),
     })
       .then(response => {
         return response.json();
-        // console.log('response@@ ', response);
-        /*    if (response.ok === true) {
-          return response.json();
-        } */
-        // throw new Error('통신실패');
       })
-      // .catch(error => console.log(error))
       .then(data => {
         if (data.message === 'success') {
-          console.log('data 🐶✏️💥✅4️⃣', data);
           alert('로그인 성공!');
+
+          // 'authorization'라는 로컬스토리지에 저장될 키 값이 백엔드에서 설정한 키와 동일해야 함.
           localStorage.setItem('authorization', data.authorization);
         } else if (data.message === 'PASSWORD_IS_NOT_VALID') {
-          alert(
-            '[비밀번호 규칙을 확인하세요.] 이메일 혹은 비밀번호를 확인해주세요.'
-          );
+          alert('비밀번호 규칙(대문자, 소문자, 기호의 혼용)을 확인하세요.');
         } else if (data.message === 'INVALID_EMAIL_OR_PASSWORD') {
           alert('이메일 혹은 비밀번호를 확인해주세요.');
         }
-
-        // console.log(data.message);
-        //  if (data.message === 'PASSWORD_IS_NOT_VALID') {
-
-        // } else if (data.message === 'success') {
-        //   console.log('data 🐶✏️💥✅4️⃣', data);
-        //   alert('로그인 성공!');
-        //   localStorage.setItem('authorization', data.authorization);
-        // }
       });
+    navigate('/main-yoohyun');
   };
 
   const activatedBtnCondition =
