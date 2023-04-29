@@ -1,0 +1,66 @@
+.navYoohyun {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  #gnb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 100px;
+
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+
+    div {
+      #logo {
+        font-family: 'Lobster', cursive;
+        font-size: 1.8rem;
+      }
+    }
+
+    .searchContainer {
+      position: relative;
+      display: inline-block;
+
+      width: 200px;
+      height: 30px;
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border: none;
+        border-radius: 5px;
+
+        background-color: #efefef;
+
+        outline: none;
+      }
+
+      .searchWrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5px;
+        width: 100%;
+        height: 100%;
+        color: #737373;
+        font-size: 0.8rem;
+      }
+    }
+
+    .navIconsContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}

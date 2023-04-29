@@ -1,3 +1,59 @@
-div {
-  border: 1px solid red;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+
+.mainYoohyun {
+  main {
+    @include flex(_, center, _, 30px);
+    padding: 50px 0;
+
+    background-color: $bgColor;
+
+    .leftColumnWrap {
+      @include flex(column, _, center, 10px);
+      // width: 70%;
+      margin-right: 50px;
+
+      .stories {
+        @include flex(_, _, _, 23px);
+      }
+    }
+  }
+}
+
+aside {
+  width: 320px;
+  // width: 30%;
+  .currentUserInfo {
+    @include flex(_, _, center, 15px);
+    margin-bottom: 15px;
+
+    &Img {
+      width: 70px;
+      height: 70px;
+      border: 1px solid $bdColor;
+      border-radius: 50%;
+    }
+
+    &Detail {
+      :nth-child(1) {
+        font-weight: 900;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+footer {
+  color: $footerColor;
+
+  ul {
+    @include flex(_, _, _, _);
+    flex-wrap: wrap;
+    height: 30px;
+  }
+  p {
+    margin: 25px 0;
+    font-size: 10px;
+  }
 }

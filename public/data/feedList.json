@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "posterImg": "/images/yoohyunMoon/profile_photo.jpg",
+    "posterName": "dream_coder",
+    "createdAt": "4일",
+    "img": "/images/yoohyunMoon/post_dog_photo.jpg",
+    "likerImg": "https://images.unsplash.com/photo-1620194544222-8c956ca15f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80",
+    "likerName": "wework",
+    "likesCount": 213,
+    "content": "오늘도 감사한 하루💖",
+    "commentCount": 3,
+    "comment": [
+      {
+        "id": 1,
+        "commenter": "dev_yh",
+        "commentText": "털쟁이 친구들은 사랑입니다 🐶"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "posterImg": "https://placeimg.com/300/300/any",
+    "posterName": "nomad_coder",
+    "createdAt": "1일",
+    "img": "https://placeimg.com/630/570/any",
+    "likerImg": "https://images.unsplash.com/photo-1620194544222-8c956ca15f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80",
+    "likerName": "wecode",
+    "likesCount": 100,
+    "content": "두 번째 포스팅 📑",
+    "commentCount": 2,
+    "comment": [
+      {
+        "id": 2,
+        "commenter": "dreamer",
+        "commentText": "드림 봐야징"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "posterImg": "https://placeimg.com/300/300/any",
+    "posterName": "nomad__worker",
+    "createdAt": "5시간",
+    "img": "https://images.unsplash.com/photo-1589061935966-52db8a998708?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1220&q=80",
+    "likerImg": "https://images.unsplash.com/photo-1620194544222-8c956ca15f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80",
+    "likerName": "moon",
+    "likesCount": 23,
+    "content": "세 번째 포스팅 ✏️",
+    "commentCount": 15,
+    "comment": [
+      {
+        "id": 3,
+        "commenter": "asis_tobe",
+        "commentText": "호주 가야징"
+      }
+    ]
+  }
+]

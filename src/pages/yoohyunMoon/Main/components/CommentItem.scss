@@ -1,0 +1,20 @@
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/mixin.scss';
+
+.commentItem {
+  @include flex(_, space-between, _, _);
+  margin-bottom: 5px;
+
+  &Detail {
+    span {
+      margin-right: 5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &Like {
+    width: 12px;
+    cursor: pointer;
+  }
+}
